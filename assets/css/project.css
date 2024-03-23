@@ -34,9 +34,11 @@
 } 
 
 #residential{
-    background: linear-gradient(rgba(0, 0, 0, 0.600), rgba(0, 0, 0, 0.600)), url('../img/wallpaper/wall_2.jpg') no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.700), rgba(0, 0, 0, 0.700)), url('../img/elevation/hm2.jpeg') no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-size:cover ;
+    background-position: bottom;
+    
 }
 
 #interior{
