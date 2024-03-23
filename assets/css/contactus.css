@@ -1,6 +1,7 @@
 #contact-form{
-    background: url('../img/wallpaper/wall_5.jpg') no-repeat;
+    background: url('../img/wallpaper/contactus.jpg') no-repeat;
     background-size: cover;
+    background-position: center;
     padding-top: 125px;
 }
 
