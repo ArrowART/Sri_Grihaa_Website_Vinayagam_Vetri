@@ -5,6 +5,10 @@
     padding-top: 125px;
 }
 
+.sec-color{
+    color: #d2691e;
+}
+
 .hr {
     display: flex;
     flex-direction: row;
@@ -13,7 +17,7 @@
 .hr:before, .hr:after{
     content: "";
     flex: 1 1;
-    border-bottom: 1px solid #b49567f5;
+    border-bottom: 1px solid #d2691e;
     margin: auto;
 }
 

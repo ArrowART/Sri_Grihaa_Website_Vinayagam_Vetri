@@ -85,6 +85,113 @@ nav .navbar-brand {
     font-size: 50px;
 }
 
+.card {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Default height for large screens */
+  overflow: hidden;
+}
+ 
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+.overlay-dim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0, rgba(20, 20, 20, 0.596) 100%); 
+  transition: background 0.3s ease-in-out;
+  z-index: 1;
+}
+
+ 
+/* .overlay-brown {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;  
+  background: rgba(139, 69, 19, 0.9); 
+  transition: height 0.3s ease-in-out;
+  z-index: 2;
+} */
+
+.overlay-brown {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Full height to allow clip-path to cover the card */
+  background: rgba(139, 69, 19, 0.9); 
+  clip-path: polygon(50% 100%, 50% 100%, 50% 100%); /* Initial triangle collapsed at bottom center */
+  transition: clip-path 0.3s ease-in-out;
+  z-index: 2;
+}
+ 
+.pro-content {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  z-index: 3;  
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.project-title {
+  opacity: 1;
+  transition: all 0.1s ease-in-out;
+  font-size: 20px;
+}
+
+.project-sub {
+    font-size: 25px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.3s ease-in-out;
+} 
+
+.pro-content a {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.3s ease-in-out;
+}
+
+ 
+.card:hover .overlay-dim {
+  background: rgba(0, 0, 0, 0.5);  
+}
+
+/* .card:hover .overlay-brown {
+  height: 40%;  
+} */
+
+.card:hover .overlay-brown {
+  clip-path: polygon(0% 100%, 50% 40%, 100% 100%);  
+}
+
+.card:hover .project-title {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.card:hover .project-sub,
+.card:hover .pro-content a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+ 
+
 .pro-content{
     position: absolute;
     width: 100%;
@@ -148,7 +255,7 @@ transition: all .5s ease-in-out;
         -moz-transition: all .2s ease-in-out;
         -webkit-transition: all .2s ease-in-out;
         -ms-transition: all .2s ease-in-out;
-}
+}  
 
 #Projects .owl-nav{
     position: absolute;
@@ -185,34 +292,89 @@ transition: all .5s ease-in-out;
     opacity: 0.7;
 }
 
-.chart-card:before{
-    border-style: solid;
-    height: 0 !important;
-    width: 0 !important;
-    border-color: #fff transparent transparent;
-    border-width: 27px 10px 0 !important;
-    border-left-color: transparent!important;
-    border-right-color: transparent!important;
-    bottom: -19px !important;
-    left: 50px !important;
-    z-index: 1;
-    -webkit-transform: rotate(27deg);
-    -ms-transform: rotate(27deg);
-    transform: rotate(27deg) !important;
+/* testimonial */
+.chart-card {
+  position: relative;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);  
+  border: 2px solid transparent; 
+  border-radius: 12px;
+  padding: 24px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;  
 }
 
-.chart-card:before {
-    content: "";
-    position: absolute;
-    transform: translateX(-50%);
-    transition: border-color .2s ease, bottom .2s ease;
+.chart-card:hover {
+  transform: scale(1.03); 
+  box-shadow: 0 2px   rgba(0, 0, 0, 0.12); 
 }
 
-.chart-card:hover{
-    transform: translate3d(0, -4px, 0);
-    transition: all .2s ease;
+.chart-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;  
+  height: 20px;
+  background: #8b4513;  
+  border-radius: 50%;  
+  transition: transform 0.3s ease; 
 }
 
+.chart-card:hover::before {
+  transform: scale(1); 
+}
+
+.review-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; 
+}
+
+.review-text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2d2d2d;  
+  font-style: italic;  
+  margin-top: 12px;
+}
+
+.reviewer-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.review-rating {
+  font-size: 14px;
+  color: #d2691e; 
+}
+
+@media (max-width: 767px) {
+  .chart-card {
+    padding: 16px;
+    border-radius: 10px;
+  }
+  .chart-card::before {
+    width: 15px;
+    height: 15px;
+    top: 8px;
+    right: 8px;
+  }
+  .chart-card:hover::before {
+    transform: scale(1);
+  }
+  .review-text {
+    font-size: 14px;
+  }
+  .reviewer-name {
+    font-size: 12px;
+  }
+  .review-rating {
+    font-size: 12px;
+  }
+}
+/*  */
 
 
 .dropdown-menu[data-bs-popper] {
@@ -341,4 +503,349 @@ header .navbar-nav a{
     }
 
    
+}
+
+/*  */
+
+.flip-card {
+  background: transparent;
+  width: 100%;         
+  height: 300px;        
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+ 
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+
+ 
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+ 
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+ 
+.flip-card-front {
+  background: #000;
+}
+.flip-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.flip-card-front::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.5) 100%);
+  transition: opacity .3s ease;
+  opacity: 1;
+}
+
+/* Front caption */
+.front-caption {
+  position: absolute;
+  left: 0;
+  bottom: 18px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  color: #ffffff;
+  z-index: 2;
+}
+
+/* BACK */
+.flip-card-back {
+  background: #8b4513;      
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  gap: 10px;
+}
+.flip-card-back h5 {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+}
+.flip-card-back a {
+  color: #ffffff; 
+  border: 2px solid #ffffff;  
+  padding: 8px 16px;  
+  font-size: 14px;  
+  font-weight: 500;  
+  border-radius: 4px;  
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;  
+}
+
+.flip-card-back a:hover {
+  color: #000000;  
+  background-color: #ffffff;  
+  border-color: #ffffff;  
+}
+
+
+@media (max-width: 1200px) {
+  .card {
+    height: 250px;  
+  }
+  .overlay-brown {
+    clip-path: polygon(50% 100%, 50% 100%, 50% 100%);
+  }
+  .card:hover .overlay-brown {
+    clip-path: polygon(0% 100%, 50% 15%, 100% 100%);  
+  }
+  .project-sub {
+    font-size: 22px;
+  }
+  .pro-content a {
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 991px) {
+  .card {
+    height: 200px; 
+  }
+  .overlay-brown {
+    clip-path: polygon(50% 100%, 50% 100%, 50% 100%);
+  }
+  .card:hover .overlay-brown {
+    clip-path: polygon(0% 100%, 50% 50%, 100% 100%);  
+  }
+  .project-sub {
+    font-size: 18px;
+  }
+  .project-title {
+    font-size: 18px;
+  }
+  .pro-content a {
+    font-size: 12px;
+    padding: 5px 10px;  
+  }
+  .pro-content {
+    bottom: 10px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    height: 150px; 
+  }
+  .overlay-brown {
+    clip-path: polygon(50% 100%, 50% 100%, 50% 100%);
+  }
+  .card:hover .overlay-brown {
+    clip-path: polygon(0% 100%, 50% 50%, 100% 100%);  
+  }
+  .project-sub {
+    font-size: 16px;
+  }
+  .project-title {
+    font-size: 16px;
+  }
+  .pro-content a {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+  .pro-content {
+    bottom: 8px;
+    padding: 0 8px;
+  }
+}
+
+
+
+/* Aboutus */
+
+
+/* h2 {
+   
+  font-weight: 900;
+  color: #dc3545;  
+  margin-bottom: 0.5rem;
+} */
+
+/* h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000000; 
+  line-height: 1.2;
+} */
+
+/* p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6c757d;  
+} */
+
+
+/* About */
+.btn-about{
+  background-color: #d2691e;  
+  color: #ffffff;  
+  padding: 10px 20px;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background-color 0.5s ease, transform 0.3s ease;
+}
+
+.btn-about:hover {
+  background-color: #d2691e;  
+  color: #ffffff;
+  transform: translateY(-2px);  
+}
+
+.abouttext{
+  color: #d2691e;
+}
+
+.img-about {
+  border-radius: 10px;  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  
+}
+
+ 
+@media (max-width: 768px) {
+  /* .row {
+    flex-direction: column-reverse;  
+  }
+  .col-md-6 {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .btn-danger {
+    padding: 8px 16px;  
+  } */
+  .img-about {
+    margin-top: 1rem;  
+  }
+}
+
+
+/* Whychooseus */
+.card {
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.fa-people-carry, .fa-clipboard-list, .fa-landmark, .fa-pencil-ruler, .fa-balance-scale, .fa-paper-plane , .fa-cogs, .fa-star, .fa-lightbulb, .fa-headset {
+  color: #d2691e;  
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+ 
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  .card-title {
+    font-size: 1.1rem;
+  }
+  .card-text {
+    font-size: 0.9rem;
+  }
+}
+
+.row > .col:last-child .card {
+  margin-bottom: 0;
+}
+
+/* Banner */
+.bg-image {
+  background: url('../img/aboutus/banner.jpg') no-repeat;
+  background-size: cover;
+  /* min-height: 400px; */
+  position: relative;
+}
+
+.bg-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease;
+}
+
+.bg-image:hover::before {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.banner-text {
+  color: #ffffff !important;
+  position: relative;
+  z-index: 1;
+}
+
+.display-5 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.banner-subtext {
+  font-size: 17px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .display-5 {
+    font-size: 2rem;
+  }
+  .lead {
+    font-size: 1rem;
+  }
+  .btn-primary {
+    padding: 8px 16px;
+  }
+  .bg-image {
+    min-height: 300px;
+  }
 }
