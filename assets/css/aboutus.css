@@ -6,20 +6,28 @@
    
 }
 
-#who-we-wre-vh{
-    height: 100vh;
+#who-we-wre-vh,
+#what-we-do-vh {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+@media (max-width: 768px) {
+    #who-we-wre-vh,
+    #what-we-do-vh {
+        min-height: auto;  
+        padding: 140px 20px;  
+    }
+}
 #what-we-do{
     background: url('../img/aboutus/what_we_do.jpg') no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-#what-we-do-vh{
-    height: 100vh ;
-}
-
+ 
 
 @media screen and (max-width: 767px) {
 
@@ -37,3 +45,4 @@
     }
 
 }
+ 
