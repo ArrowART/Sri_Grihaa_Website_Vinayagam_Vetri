@@ -307,17 +307,17 @@ transition: all .5s ease-in-out;
   box-shadow: 0 2px   rgba(0, 0, 0, 0.12); 
 }
 
-.chart-card::before {
+/* .chart-card::before {
   content: "";
   position: absolute;
   top: 10px;
   right: 10px;
   width: 20px;  
   height: 20px;
-  background: #8b4513;  
+  background: #d2691e;  
   border-radius: 50%;  
   transition: transform 0.3s ease; 
-}
+} */
 
 .chart-card:hover::before {
   transform: scale(1); 
@@ -758,7 +758,7 @@ header .navbar-nav a{
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.fa-people-carry, .fa-clipboard-list, .fa-landmark, .fa-pencil-ruler, .fa-balance-scale, .fa-paper-plane , .fa-cogs, .fa-star, .fa-lightbulb, .fa-headset {
+.fa-people-carry, .fa-clipboard-list, .fa-landmark, .fa-pencil-ruler, .fa-balance-scale, .fa-paper-plane , .fa-cogs, .fa-star, .fa-lightbulb, .fa-headset, .fa-solid, .fa-solid, .fa-whatsapp {
   color: #d2691e;  
 }
 
@@ -848,4 +848,9 @@ header .navbar-nav a{
   .bg-image {
     min-height: 300px;
   }
+}
+
+
+.form-label{
+  color: #d2691e;
 }
