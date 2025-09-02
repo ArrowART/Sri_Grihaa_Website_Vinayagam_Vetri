@@ -1,0 +1,20 @@
+#interiorrenovationbg {
+    position: relative;  
+    background: none;  
+    overflow: hidden;  
+}
+
+#interiorrenovationbg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.540), rgba(0, 0, 0, 0.540)), url('../img/services/bg4.jpg') no-repeat;
+    background-attachment: fixed;
+    background-size: cover;  
+    filter: blur(4px);  
+    z-index: -1;  
+}
+ 
