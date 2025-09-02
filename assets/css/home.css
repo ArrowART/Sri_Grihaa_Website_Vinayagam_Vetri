@@ -176,7 +176,7 @@ nav .navbar-brand {
 } */
 
 .card:hover .overlay-brown {
-  clip-path: polygon(0% 100%, 50% 40%, 100% 100%);  
+  clip-path: polygon(0% 100%, 50% 20%, 100% 100%);  
 }
 
 .card:hover .project-title {
@@ -464,9 +464,9 @@ header .navbar-nav a{
         z-index: 99;
     }
 
-    #hero .carousel-inner{
+    /* #hero .carousel-inner{
         height:100vh;
-    }
+    } */
 
     #hero .carousel img {
         height: 100%;
@@ -480,6 +480,7 @@ header .navbar-nav a{
     }
     
 }
+
 @media screen and (max-width:972px){
 
     #hero .carousel-inner{
@@ -850,7 +851,37 @@ header .navbar-nav a{
   }
 }
 
-/* 
-.form-label{
-  color: #d2691e;
-} */
+
+#hero .carousel-caption {
+    position: absolute;
+    z-index: 99;
+    width: 100%;  
+    left: 0;  
+    right: 0; 
+    padding: 1rem; 
+    text-align: center;
+}
+
+#hero .carousel-inner .carousel-item {
+    width: 100%;  
+}
+
+
+@media screen and (max-width: 972px) {
+    #hero .carousel-caption {
+        top: 30%;
+        width: 100%;  
+        padding: 0.75rem;  
+    }
+}
+
+@media screen and (min-width: 972px) {
+    #hero .carousel-caption {
+        top: 40.5%;
+        width: 70%;  
+        padding: 1rem;
+        margin: 0 auto;  
+    }
+}
+
+

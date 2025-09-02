@@ -14,7 +14,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.540), rgba(0, 0, 0, 0.540)), url('../img/services/bg4.jpg') no-repeat;
     background-attachment: fixed;
     background-size: cover;  
-    filter: blur(4px);  
+    /* filter: blur(4px);   */
     z-index: -1;  
 }
  

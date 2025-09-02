@@ -20,6 +20,6 @@
     background: linear-gradient(rgba(0, 0, 0, 0.644), rgba(0, 0, 0, 0.644)), url('../img/wallpaper/wall_1.jpg') no-repeat;
     background-attachment: fixed;
     background-size: cover;  
-    filter: blur(4px);  
+    /* filter: blur(4px);   */
     z-index: -1;  
 }
